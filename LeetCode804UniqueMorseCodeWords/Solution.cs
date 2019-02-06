@@ -10,7 +10,7 @@ namespace LeetCode804UniqueMorseCodeWords
     {
         public int UniqueMorseRepresentations(string[] words)
         {
-            throw new NotImplementedException();
+            return words.Select(x => ConvertToMorseWord(x)).Distinct().Count();
         }
 
         public string ConvertToMorseWord(string word)
