@@ -10,7 +10,7 @@ namespace LeetCode804UniqueMorseCodeWords
     {
         public int UniqueMorseRepresentations(string[] words)
         {
-            return words.Select(x => ConvertToMorseWord(x)).Distinct().Count();
+            return words.Select(ConvertToMorseWord).Distinct().Count();
         }
 
         public string ConvertToMorseWord(string word)
@@ -27,7 +27,7 @@ namespace LeetCode804UniqueMorseCodeWords
             return strBuilder.ToString();
         }
 
-        string[] morseCodes = new string[]
+        private readonly string[] _morseCodes = new string[]
         {
             ".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---",
             ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."
@@ -36,7 +36,7 @@ namespace LeetCode804UniqueMorseCodeWords
         private string GetMorseCode(char c)
         {
             var index = c - 97;
-            return morseCodes[index];
+            return _morseCodes[index];
         }
     }
 }
